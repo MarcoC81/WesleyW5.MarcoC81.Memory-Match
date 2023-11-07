@@ -76,6 +76,7 @@ function resetGame()
         cardArray[i].setIsRevealed(false);
         cardArray[i].setIsTurned(false);
         cardArray[i].getReference().querySelector("img").src = "images/backImage.png";
+        cardArray[i].getReference().querySelector("img").alt = "images/backImage.png";
         cardArray[i].setImgLink(currentImgArray[i]);
         // cardArray[i].getReference().querySelector("img").src = currentImgArray[i];
         cardArray[i].getReference().addEventListener("click", () => {
@@ -95,6 +96,7 @@ function gameAction(card)
             flippedOverArray[0] = card;
             card.setIsTurned(true);
             card.getReference().querySelector("img").src = card.getImgLink();
+            card.getReference().querySelector("img").alt = card.getImgLink();
             flippedOverCount++;
         }
         else if (flippedOverCount < 2)
@@ -103,6 +105,7 @@ function gameAction(card)
             flippedOverArray[1] = card;
             card.setIsTurned(true);
             card.getReference().querySelector("img").src = card.getImgLink();
+            card.getReference().querySelector("img").alt = card.getImgLink();
             flippedOverCount++;
             timeOut = setTimeout(() => 
             {
@@ -117,6 +120,9 @@ function gameAction(card)
                 {
                     flippedOverArray[0].getReference().querySelector("img").src = "images/backImage.png";
                     flippedOverArray[1].getReference().querySelector("img").src = "images/backImage.png";
+                    flippedOverArray[0].getReference().querySelector("img").alt = "images/backImage.png";
+                    flippedOverArray[1].getReference().querySelector("img").alt = "images/backImage.png";
+                    
                 }
                 flippedOverArray[0].setIsTurned(false);
                 flippedOverArray[1].setIsTurned(false);
