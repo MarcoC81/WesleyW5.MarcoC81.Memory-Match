@@ -124,7 +124,7 @@ function gameAction(card)
                 flippedOverCount = 0;
                 if (checkWin())
                 {
-                    window.confirm(`You win!!! Your score is ${score}. Click the RESET button to play again!`);
+                    window.confirm(generateVictoryMessage(score) +  ` Click the RESET button to play again!`);
                 }
                 else
                 {
@@ -161,5 +161,31 @@ function checkWin()
     }
     return false;
 }
-
+function generateVictoryMessage(scoreInput)
+{
+    if (scoreInput <= 16)
+    {
+        return `You win!!!!! Your score is ${score}! That's the best score possible! Great job!`;
+    } 
+    else if (scoreInput < 25)
+    {
+        return `You win!!!!  Your score is ${score}! You're really good at this, that's an amazing score!`;
+    }
+    else if (scoreInput < 35)
+    {
+        return `You win!!!  Your score is ${score}! You have a pretty good memory! Or you're really lucky! :D`;
+    }
+    else if (scoreInput < 45)
+    {
+        return `You win!!  Your score is ${score}! Not bad of a score at all!`;
+    }
+    else if (scoreInput < 60)
+    {
+        return `You win!  Your score is ${score}! I'm sure you can get a better score!`;
+    }
+    else if (scoreInput >= 60)
+    {
+        return `You win.  Your score is ${score}. I'm angry at your score. >:(`;
+    }
+}
 resetGame();  //initialize function
